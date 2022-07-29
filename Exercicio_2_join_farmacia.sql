@@ -53,3 +53,21 @@ INSERT INTO tb_produtos(nome_produto,quantidade,valor, catego_id)VALUES("Ibuprof
 INSERT INTO tb_produtos(nome_produto,quantidade,valor, catego_id)VALUES("Estomazil",10,10.00,5);
 INSERT INTO tb_produtos(nome_produto,quantidade,valor, catego_id)VALUES("Eno",10,12.00,5);
 INSERT INTO tb_produtos(nome_produto,quantidade,valor, catego_id)VALUES("Omeprazol",10,9.00,5);
+
+SELECT * FROM tb_produtos WHERE nome_produto LIKE "%c%";
+
+SELECT * FROM tb_produtos WHERE valor>50.00;
+
+SELECT * FROM tb_produtos WHERE valor>5.00 AND valor<60.00;
+
+SELECT * FROM tb_produtos INNER JOIN categoria ON categoria.id = tb_produtos.catego_id;
+-- inner join "cruza as tabelas da tabela categoria" ON "onde" o id da categoria será igual 
+-- a catego_id que é a FK "chave estrangeira"
+
+SELECT tb_produtos.nome_produto, tb_produtos.valor, categoria.medicamento FROM tb_produtos
+INNER JOIN categoria ON categoria.id = tb_produtos.catego_id;
+-- busca apenas o nome, preço e marca
+
+SELECT * FROM tb_produtos 
+INNER JOIN categoria ON categoria.id = tb_produtos.catego_id;
+
